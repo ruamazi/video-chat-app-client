@@ -11,13 +11,8 @@ export const loginUser = async (loginData) => {
 };
 
 export const getAuthUser = async () => {
- try {
-  const resp = await axiosInstance.get("/auth/me");
-  return resp.data;
- } catch (error) {
-  console.log("Error in getAuthUser", error);
-  return null;
- }
+ const resp = await axiosInstance.get("/auth/me");
+ return resp.data;
 };
 
 export const completeOnboarding = async (onboardingData) => {
@@ -26,7 +21,8 @@ export const completeOnboarding = async (onboardingData) => {
 };
 
 export const logOutUser = async () => {
- const resp = await axiosInstance.post("/auth/signout");
+ //  const randomDate = new Date().getTime();
+ const resp = await axiosInstance.post(`/auth/signout`);
  return resp.data;
 };
 
