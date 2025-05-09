@@ -8,6 +8,7 @@ const useLogout = () => {
   mutationFn: logOutUser,
   onSuccess: () => {
    queryClient.invalidateQueries({ queryKey: ["authUser"] });
+   window.location.reload();
   },
  });
 
