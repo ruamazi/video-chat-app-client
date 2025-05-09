@@ -3,9 +3,13 @@ import { logOutUser } from "../lib/api";
 
 const useLogout = () => {
  const queryClient = useQueryClient();
+
  const { mutate: logoutMutation } = useMutation({
   mutationFn: logOutUser,
-  onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
+  onSuccess: () => {
+   queryClient.invalidateQueries({ queryKey: ["authUser"] });
+   window.location.reload();
+  },
  });
 
  return { logoutMutation };
